@@ -3,12 +3,29 @@
 	<head>
 		<meta charset='utf-8'/>
 		<title>BattleCode</title>
+
+		<style>
+			.play1 {
+				display: inline-block;
+				float:left;
+				width: 45%;
+				height: 80%;
+			}
+
+			.play2 {
+				display: inline-block;
+				float: right;
+				width: 45%;
+				height: 80%;
+			}
+		</style>
 	</head>
 
 	<body>
 		<h1>BattleCode</h1>
 		<p>Now testing Socket</p>
-		
+		<textarea rows='20' class='play1'>Code 1</textarea>
+		<textarea rows='20' class='play2'>Code 2</textarea>
 		<script src='./lib/socket.io-client/socket.io.js'></script>
 		<script>
 			var socket = io();
