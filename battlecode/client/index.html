@@ -5,14 +5,14 @@
 		<title>BattleCode</title>
 
 		<style>
-			.play1 {
+			.play0 {
 				display: inline-block;
 				float:left;
 				width: 45%;
 				height: 80%;
 			}
 
-			.play2 {
+			.play1 {
 				display: inline-block;
 				float: right;
 				width: 45%;
@@ -24,18 +24,24 @@
 	<body>
 		<h1>BattleCode</h1>
 		<p>Now testing Socket</p>
-		<textarea rows='20' class='play1'>Code 1</textarea>
-		<textarea rows='20' class='play2'>Code 2</textarea>
+		<textarea rows='20' class='play0'>Code 1</textarea>
+		<textarea rows='20' class='play1'>Code 2</textarea>
 		<script src='./lib/jquery/dist/jquery.min.js'></script>
 		<script src='./lib/lodash/dist/lodash.min.js'></script>
 		<script src='./lib/socket.io-client/socket.io.js'></script>
 		<script>
 			var socket = io();
-			$('.play1, .play2').keyup(function(event) {
+			$('.play0, .play1').keyup(function(event) {
 				if(event.keyCode === 13) {
 					var $this = $(this);
 					socket.emit('enterKeyed', $this.val() );
 				}
+			});
+			socket.on('lineFrom0', function(val) {
+				$('.play0').val(val);
+			});
+			socket.on('lineFrom1', function(val) {
+				$('.play1').val(val);
 			});
 
 		</script>
