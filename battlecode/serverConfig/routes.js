@@ -6,4 +6,12 @@ module.exports = function(app, express) {
 		res.render('index');
 	});
 
+	app.post('/submit0', function(req, res) {
+		res.send(req.body);
+	});
+
+	app.post('/submit1', function(req, res) {
+		res.send(req.body);
+	})
+
 }
