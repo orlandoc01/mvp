@@ -9,7 +9,18 @@
   "author": "Orlando <orlandoc@sas.upenn.edu>",
   "license": "UNLICENSED",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/orlandoc01/2016-01-mvp"
+    "type": "git",
+    "url": "https://github.com/orlandoc01/2016-01-mvp"
+  },
+  "dependencies": {
+    "bluebird": "^3.3.1",
+    "body-parser": "^1.15.0",
+    "bookshelf": "^0.9.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "knex": "^0.10.0",
+    "request": "^2.69.0",
+    "session": "^0.1.0",
+    "socket.io": "^1.4.5"
   }
 }
