@@ -10,6 +10,9 @@ require(__dirname + '/serverConfig/routes.js')(app, express);
 
 io.on('connection', function(socket) {
 	console.log('a user connected');
+	socket.on('enterKeyed', function(val) {
+		console.log("text in field is " + val);
+	})
 });
 
 server.listen(3000, function() {

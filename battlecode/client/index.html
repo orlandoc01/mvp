@@ -31,6 +31,12 @@
 		<script src='./lib/socket.io-client/socket.io.js'></script>
 		<script>
 			var socket = io();
+			$('.play1, .play2').keyup(function(event) {
+				if(event.keyCode === 13) {
+					var $this = $(this);
+					socket.emit('enterKeyed', $this.val() );
+				}
+			});
 
 		</script>
 	</body>
