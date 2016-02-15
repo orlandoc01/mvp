@@ -7,14 +7,12 @@
 		<style>
 			.play0 {
 				display: inline-block;
-				float:left;
 				width: 45%;
 				height: 80%;
 			}
 
 			.play1 {
 				display: inline-block;
-				float: right;
 				width: 45%;
 				height: 80%;
 			}
@@ -24,8 +22,17 @@
 	<body>
 		<h1>BattleCode</h1>
 		<p>Now testing Socket</p>
-		<textarea rows='20' class='play0'>Code 1</textarea>
-		<textarea rows='20' class='play1'>Code 2</textarea>
+		
+		<form action='/submit0' method='post'>
+			<textarea rows='20' class='play0' id='play0Code'>Code 0</textarea>
+			<input type='submit' value='Submit Code!'>
+		</form>
+
+		<form action='/submit1' method='post'>
+			<textarea rows='20' class='play1' id='play1Code'>Code 1</textarea>
+			<input type='submit' value='Submit Code!'>
+		</form>
+
 		<script src='./lib/jquery/dist/jquery.min.js'></script>
 		<script src='./lib/lodash/dist/lodash.min.js'></script>
 		<script src='./lib/socket.io-client/socket.io.js'></script>
