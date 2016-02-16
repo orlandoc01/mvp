@@ -46,17 +46,26 @@
 			$('.submit0').on('click', function() {
 				var code = $('#play0Code').val()
 				$.post('/submit0', {code: code}, function(data) {
-					console.log('sucessfully sent to server');
-					console.log('result is ' + data);
-					window.result = data[1];
+					if(data[0] === 1) {
+						socket.emit('winner', 0);
+						alert('Success. You win!');
+					} else {
+						$('.play0result').html(data[1]);
+					}
 				});
 			});
 
 			$('.submit1').on('click', function() {
 				var code = $('#play1Code').val()
-				$.post('/submit0', {code: code}, function(data) {
-					console.log('sucessfully sent to server');
-					console.log('result is ' + data)
+				$.post('/submit1', {code: code}, function(data) {
+					console.log(data);
+					if(data[0] === 1) {
+						socket.emit('winner', 1);
+						alert('Success. You win!')
+					} else {
+						$('.play1result').html(data[1]);
+					}
+
 				})
 			})
 

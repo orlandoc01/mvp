@@ -22,6 +22,7 @@ module.exports = function(app, express) {
 	});
 
 	app.post('/submit1', function(req, res) {
+		var playerId = req.path[req.path.length - 1];
 		checkCode(req.body.code, playerId, function(err, result) {
 			if(err) {
 				console.log('an error occured');

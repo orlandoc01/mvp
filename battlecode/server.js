@@ -20,6 +20,9 @@ io.on('connection', function(socket) {
 		console.log('submitted from user ' + socket.clientIndex);
 		socket.broadcast.emit('lineFrom' + socket.clientIndex, val);
 	})
+	socket.on('winner', function(val) {
+		socket.broadcast.emit('Player ' + val + ' won!');
+	})
 });
 
 server.listen(3000, function() {
