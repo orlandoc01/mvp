@@ -1,0 +1,8 @@
+Return an array with the power set of a given string.<br>Definition of power set: The set of all possible subsets including the empty set.<br>Example:<br>powerSet("abc")<br>
+		-> [ '' , 'a', 'b', 'c', 'ab', 'ac', 'bc', 'abc' ]<br>Note:<br> 
+ 		1. All characters in a subset should be sorted.<br>
+ 		2. Sets of the same characters are considered duplicates regardless of order and count only once, e.g. 'ab' and 'ba' are the same.<br>
+ 		Example 2 : <br>
+ 		powerSet("jump")<br>
+ 		-> ["", "j", "ju", "jm", "jp", "jmu", "jmp", "jpu", "jmpu", "u", 
+ 		<br>"m", "p", "mu", "mp", "pu", "mpu"]

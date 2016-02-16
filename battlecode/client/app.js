@@ -48,7 +48,11 @@ $(document).ready( function() {
 				socket.emit('winner', 0);
 				alert('Success. You win!');
 			} else {
-				$('.play0result').html(data[1]);
+				var display = data[1];
+				if(data[2]) {
+					display = display + '<br>Console Output: ' + data[2];
+				}
+				$('.play0result').html(display);
 			}
 		});
 	});
@@ -60,7 +64,11 @@ $(document).ready( function() {
 				socket.emit('winner', 1);
 				alert('Success. You win!')
 			} else {
-				$('.play1result').html(data[1]);
+				var display = data[1];
+				if(data[2]) {
+					display = display + '<br>Console Output: ' + data[2];
+				}
+				$('.play1result').html(display);
 			}
 
 		})
