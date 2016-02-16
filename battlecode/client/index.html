@@ -24,6 +24,8 @@
 		<div class='play0result'>Output for Player 0</div>
 		<div class='play1result'>Output for Player 1</div>
 
+		<div class='playName'>You are spectating</div>
+
 
 		<script src='./lib/jquery/dist/jquery.min.js'></script>
 		<script src='./lib/lodash/dist/lodash.min.js'></script>
@@ -36,6 +38,11 @@
 					socket.emit('enterKeyed', $this.val() );
 				}
 			});
+
+			socket.on('playId', function(message) {
+				$('.playName').html(message);
+			})
+
 			socket.on('lineFrom0', function(val) {
 				$('.play0').val(val);
 			});
@@ -62,7 +69,6 @@
 			$('.submit1').on('click', function() {
 				var code = $('#play1Code').val()
 				$.post('/submit1', {code: code}, function(data) {
-					console.log(data);
 					if(data[0] === 1) {
 						socket.emit('winner', 1);
 						alert('Success. You win!')

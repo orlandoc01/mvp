@@ -9,6 +9,10 @@ module.exports = function(Server) {
 		console.log('a user connected');
 		clients.push(socket);
 		socket.clientIndex = startIndex++;
+		var message = socket.clientIndex > 1 ? "You are spectating" : 
+																					"You are player " + socket.clientIndex;
+
+		socket.emit('playId', message);
 		
 		socket.on('enterKeyed', function(val) {
 			console.log('submitted from user ' + socket.clientIndex);
