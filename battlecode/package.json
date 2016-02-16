@@ -15,12 +15,10 @@
   "dependencies": {
     "bluebird": "^3.3.1",
     "body-parser": "^1.15.0",
-    "bookshelf": "^0.9.1",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "hackerearth-node": "^1.2.2",
     "http": "0.0.0",
-    "knex": "^0.10.0",
     "morgan": "^1.6.1",
     "request": "^2.69.0",
     "session": "^0.1.0",
