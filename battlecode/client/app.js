@@ -1,4 +1,31 @@
-var socket = io();
+$(document).ready( function() {
+
+	// CodeMirror.fromTextArea(document.getElementById('play0Code'), {
+	// 	mode: "javascript"
+	// });
+
+	// CodeMirror.fromTextArea(document.getElementById('play1Code'), {
+	// 	mode: "javascript"
+	// });
+
+ 	// var textarea = document.getElementById('play0Code');
+  // var editor = CodeMirror.fromTextArea((textarea), {
+  //   height: "350px",
+  //   content: textarea.value,
+  //   stylesheet: "./codeMirror/jscolors.css",
+  //   parserfile: ["tokenizejavascript.js", "parsejavascript.js"],
+  //   path: "./codeMirror/",
+  //   autoMatchParens: true,
+  //   onChange: function(cm) {
+  //   	console.log(cm.container.innerText);
+  //   }
+  // });
+
+
+
+
+	var socket = io();
+
 	$('.play0, .play1').keyup(function(event) {
 		if(event.keyCode === 13) {
 			var $this = $(this);
@@ -45,3 +72,4 @@ var socket = io();
 
 		})
 	})
+});
