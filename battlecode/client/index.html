@@ -99,6 +99,7 @@
 				var code = $('#play0Code').val()
 				$.post('/submit0', {code: code}, function(data) {
 					console.log('sucessfully sent to server');
+					console.log('result is ' + data);
 				});
 			});
 
@@ -106,6 +107,7 @@
 				var code = $('#play1Code').val()
 				$.post('/submit0', {code: code}, function(data) {
 					console.log('sucessfully sent to server');
+					console.log('result is ' + data)
 				})
 			})
 

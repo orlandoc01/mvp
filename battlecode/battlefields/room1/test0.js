@@ -25,3 +25,5 @@ var testCode = function() {
 			return [1, "Success! It works"];
 	}
 }
+
+module.exports.testCode = testCode;
