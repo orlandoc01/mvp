@@ -1,5 +1,5 @@
 var powerSet = function() {
-
+  return "Orlando's app is great";
 }
 
-exports.module.powerSet = powerSet;
+module.exports.powerSet = powerSet
