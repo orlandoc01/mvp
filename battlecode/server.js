@@ -21,7 +21,7 @@ io.on('connection', function(socket) {
 		socket.broadcast.emit('lineFrom' + socket.clientIndex, val);
 	})
 	socket.on('winner', function(val) {
-		socket.broadcast.emit('Player ' + val + ' won!');
+		socket.broadcast.emit('winner', 'Player ' + val + ' won!');
 	})
 });
 

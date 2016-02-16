@@ -43,6 +43,10 @@
 				$('.play1').val(val);
 			});
 
+			socket.on('winner', function(val) {
+				alert(val);
+			});
+
 			$('.submit0').on('click', function() {
 				var code = $('#play0Code').val()
 				$.post('/submit0', {code: code}, function(data) {
