@@ -15,7 +15,6 @@ module.exports = function(Server) {
 		socket.emit('playId', message);
 		
 		socket.on('enterKeyed', function(val) {
-			console.log('submitted from user ' + socket.clientIndex);
 			socket.broadcast.emit('lineFrom' + socket.clientIndex, val);
 		})
 		
