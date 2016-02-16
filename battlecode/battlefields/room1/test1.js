@@ -1,4 +1,4 @@
-var powerSet = require('./code.js').powerSet;
+var powerSet = require('./code1.js').powerSet;
 
 var testCode = function() {
 	if(powerSet() === "Orlando's app is great") {

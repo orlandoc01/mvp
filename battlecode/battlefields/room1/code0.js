@@ -1,8 +1,5 @@
 var powerSet = function() {
 
+}
 
-
-};
-
-
-module.exports.powerSet = powerSet;
+exports.module.powerSet = powerSet;

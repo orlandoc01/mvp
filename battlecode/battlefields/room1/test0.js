@@ -1,4 +1,4 @@
-var powerSet = require('./code.js').powerSet;
+var powerSet = require('./code0.js').powerSet;
 
 var testCode = function() {
 	if(powerSet() === "Orlando's app is great") {
@@ -17,9 +17,9 @@ var testCode = function() {
 		return [0, "function should include original and subsets"];
 	} else if (!(powerSet('ab').includes('a') && powerSet('ab').includes('b') && powerSet('ab').includes('a'))) {
 		return [0, "funciton should work for array of length 2"]
-	} else if (!(powerSet('abc').length !=== 8)) {
+	} else if (!(powerSet('abc').length !== 8)) {
 		return [0, "functon should work for array of length 3"]
-	} else if (!(powerset('abcd').length !=== 16)) {
+	} else if (!(powerset('abcd').length !== 16)) {
 		return [0, "function should work for array of length 4"];
 	} else {
 			return [1, "Success! It works"];

@@ -11,14 +11,14 @@ module.exports = function(app, express) {
 	app.post('/submit0', function(req, res) {
 		var playerId = req.path[req.path.length - 1];
 		checkCode(req.body.code, playerId, function(result) {
-			console.log('result is' + result);
+			console.log('result is' + JSON.stringify(result));
 			res.send(result);
 		})
 	});
 
 	app.post('/submit1', function(req, res) {
 		checkCode(req.body.code, playerId, function(result) {
-			console.log('result is' + result);
+			console.log('result is' + JSON.stringify(result));
 			res.send(result);
 		})
 	});
