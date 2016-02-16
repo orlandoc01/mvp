@@ -16,6 +16,14 @@
 				width: 45%;
 				height: 80%;
 			}
+
+			.submit0 {
+				float: left;
+			}
+
+			.submit1 {
+				float:right;
+			}
 		</style>
 	</head>
 
@@ -23,15 +31,11 @@
 		<h1>BattleCode</h1>
 		<p>Now testing Socket</p>
 		
-		<form action='/submit0' method='post'>
 			<textarea rows='20' class='play0' id='play0Code'>Code 0</textarea>
-			<input type='submit' value='Submit Code!'>
-		</form>
-
-		<form action='/submit1' method='post'>
 			<textarea rows='20' class='play1' id='play1Code'>Code 1</textarea>
-			<input type='submit' value='Submit Code!'>
-		</form>
+			<button class='submit0'>Submit Code!</button>
+			<button class='submit1'>Submit Code!'</button>
+	
 
 		<script src='./lib/jquery/dist/jquery.min.js'></script>
 		<script src='./lib/lodash/dist/lodash.min.js'></script>
@@ -50,6 +54,22 @@
 			socket.on('lineFrom1', function(val) {
 				$('.play1').val(val);
 			});
+
+			$('.submit0').on('click', function() {
+				var code = $('#play0Code').val()
+				console.log('submit0 clicked');
+				$.post('/submit0', {code: code}, function(data) {
+					console.log('sucessfully sent to server');
+				});
+			});
+
+			$('.submit1').on('click', function() {
+				console.log('submit1 clicked');
+				var code = $('#play1Code').val()
+				$.post('/submit0', {code: code}, function(data) {
+					console.log('sucessfully sent to server');
+				})
+			})
 
 		</script>
 	</body>
