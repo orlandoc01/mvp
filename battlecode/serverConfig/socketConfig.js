@@ -13,18 +13,13 @@ function Person(id) {
 var currentRoom = new Room(0);
 var personId = 0;
 var emptyRooms = []; 
-var clients = [];
 
-
-var startIndex = 0;
 
 module.exports = function(Server) {
 	var io = require('socket.io')(Server);
 
 	io.on('connection', function(socket) {
-		
-		console.log('a user connected');
-		clients.push(socket);
+
 		var currPerson;
 
 		if (emptyRooms.length !== 0) {
@@ -53,13 +48,9 @@ module.exports = function(Server) {
 			}
 		}
 
-	
 		var message = socket.person.id > 1 ? "You are spectating" : 
 																					"You are player " + socket.person.id
 																					+ " in room " + socket.person.room.num;
-
-			
-		
 		socket.emit('playId', message);
 		
 		socket.on('enterKeyed', function(val) {

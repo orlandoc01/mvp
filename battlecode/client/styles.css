@@ -30,3 +30,10 @@ h1 {
 	display: block;
 	text-align: center;
 }
+
+.CodeMirror.cm-s-default {
+	display: inline-block;
+	width: 45%;
+	border: 1px solid black;
+	margin: 2%;
+}
