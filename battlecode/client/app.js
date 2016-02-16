@@ -46,7 +46,7 @@ $(document).ready( function() {
 	});
 
 	$('.submit0').on('click', function() {
-		var code = $('#play0Code').val()
+		var code = cm0.getValue();
 		$.post('/submit0', {code: code}, function(data) {
 			if(data[0] === 1) {
 				socket.emit('winner', 0);
@@ -58,7 +58,7 @@ $(document).ready( function() {
 	});
 
 	$('.submit1').on('click', function() {
-		var code = $('#play1Code').val()
+		var code = cm1.getValue();
 		$.post('/submit1', {code: code}, function(data) {
 			if(data[0] === 1) {
 				socket.emit('winner', 1);
