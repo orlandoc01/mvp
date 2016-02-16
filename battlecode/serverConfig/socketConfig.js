@@ -53,8 +53,8 @@ module.exports = function(Server) {
 
 		var message = socket.person.id > 1 ? "You are spectating" : 
 																					"You are player " + socket.person.id
-																					+ " in room " + socket.person.room.num;
-		socket.emit('playId', message);
+																					+ " in room " + socket.room.num;
+		socket.emit('setup', socket.person.id, socket.room.num);
 		
 
 		socket.on('codeEntered', function(val) {

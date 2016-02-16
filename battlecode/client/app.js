@@ -16,8 +16,12 @@ $(document).ready( function() {
 	});
 
 	//Socket assignment and connecting to eaach others code
-	socket.on('playId', function(message) {
+	socket.on('setup', function(id, roomNum) {
+		var message = "You are player " + id + " in room " + roomNum;
+		var oppID = !id * 1;
+		console.log('oppID is ' + oppID);
 		$('.playName').html(message);
+		$('.submit' + oppID + ',.kick' + id).prop('disabled', true);
 	})
 
 	socket.on('codeFrom0', function(val) {
