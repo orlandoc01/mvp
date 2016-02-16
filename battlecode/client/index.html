@@ -5,24 +5,40 @@
 		<title>BattleCode</title>
 
 		<style>
+			h1 {
+				text-align: center;
+			}
+			.prompt {
+				text-align: center;
+			}
 			.play0 {
+				position: absolute;
 				display: inline-block;
-				width: 45%;
-				height: 80%;
+				width: 40%;
+				height: 50%;
+				left: 5%;
 			}
 
 			.play1 {
+				position: absolute;
 				display: inline-block;
-				width: 45%;
-				height: 80%;
+				width: 40%;
+				height: 50%;
+				right: 5%;
 			}
 
 			.submit0 {
-				float: left;
+				position: absolute;
+				display: inline-block;
+				left: 5%;
+				top: 80%;
 			}
 
 			.submit1 {
-				float:right;
+				position: absolute;
+				display: inline-block;
+				left: 55%;
+				top: 80%;
 			}
 		</style>
 	</head>
@@ -30,11 +46,23 @@
 	<body>
 		<h1>BattleCode</h1>
 		
-			<textarea rows='20' class='play0' id='play0Code'>Code 0</textarea>
-			<textarea rows='20' class='play1' id='play1Code'>Code 1</textarea>
-			<button class='submit0'>Submit Code Player 0!</button>
-			<button class='submit1'>Submit Code Player 1!'</button>
-	
+		<div class = 'prompt'>Return an array with the power set of a given string.<br>Definition of power set: The set of all possible subsets including the empty set.<br>Example:<br>powerSet("abc")<br>
+		-> [ '' , 'a', 'b', 'c', 'ab', 'ac', 'bc', 'abc' ]<br>Note:<br> 
+ 		1. All characters in a subset should be sorted.<br>
+ 		2. Sets of the same characters are considered duplicates regardless of order and count only once, e.g. 'ab' and 'ba' are the same.<br>
+ 		Example 2 : <br>
+ 		powerSet("jump")<br>
+ 		-> ["", "j", "ju", "jm", "jp", "jmu", "jmp", "jpu", "jmpu", "u", 
+ 		<br>"m", "p", "mu", "mp", "pu", "mpu"]
+</div>
+
+		<textarea rows='20' class='play0' id='play0Code'>Code 0</textarea>
+		<textarea rows='20' class='play1' id='play1Code'>Code 1</textarea><br>
+		<button class='submit0'>Submit Code Player 0!</button>
+		<button class='submit1'>Submit Code Player 1!'</button>
+		<div class='play0result'>Output for Player 0</div>
+		<div class='play1result'>Output for Player 1</div>
+
 
 		<script src='./lib/jquery/dist/jquery.min.js'></script>
 		<script src='./lib/lodash/dist/lodash.min.js'></script>
