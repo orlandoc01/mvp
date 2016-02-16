@@ -55,7 +55,6 @@ module.exports = function(Server) {
 		
 
 		socket.on('codeEntered', function(val) {
-			console.log('code entered was ' + val);
 			socket.to(socket.person.room.roomname).broadcast.emit('codeFrom' + socket.person.id, val);
 		})
 
@@ -68,7 +67,18 @@ module.exports = function(Server) {
 			emptyRoom = socket.person.room;
 			emptySlot = socket.person.id;
 			emptyRooms.push({room: emptyRoom, id: emptySlot});
-			console.log('client disconnected');
 		})
+
+		socket.on('kick0', function() {
+			if(socket.person.id === 1) {
+				io.to(socket.person.room.roomname).emit('kicked0')
+			}
+		});
+
+		socket.on('kick1', function() {
+			if(socket.person.id === 0) {
+				io.to(socket.person.room.roomname).emit('kicked1')
+			}
+		});
 	});
 }
