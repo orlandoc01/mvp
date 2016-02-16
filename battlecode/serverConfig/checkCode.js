@@ -1,14 +1,15 @@
 var fs = require('fs');
+var requireUncached = require('require-uncached');
 
-module.exports.checkCode = function(code, playerID, callback) {
+module.exports.checkCode = function(code, callback) {
 	var fileDir = __dirname + '/../battlefields/room1/';
-	var filePath = fileDir + '/code' + playerID + '.js';
+	var filePath = fileDir + '/code.js';
 	fs.writeFile(filePath, code, 'utf8', function(err) {
 		if(err) {
 			callback(err, null);
 		} else {
 			try {
-				var result = require(fileDir + '/test' + playerID + '.js').testCode();
+				var result = requireUncached(fileDir + '/test.js').testCode()
 				callback(null, result);
 			} catch(e) {
 				callback(e, null);

@@ -1,5 +1,6 @@
 var powerSet = function(str) {
 //Insert code here
+  return [];
 }
 
 
