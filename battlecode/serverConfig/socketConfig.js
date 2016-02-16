@@ -14,15 +14,15 @@ function Person(id) {
 var currentRoom = new Room(0);
 var personId = 0;
 var emptyRooms = []; 
+var clients = {};
 
 
 module.exports = function(Server) {
 	var io = require('socket.io')(Server);
 
 	io.on('connection', function(socket) {
-
 		var currPerson;
-
+		
 		if (emptyRooms.length !== 0) {
 			var fillingRoom = emptyRooms.shift();
 			currPerson = new Person(fillingRoom.id);
@@ -32,7 +32,6 @@ module.exports = function(Server) {
 			socket.person = currPerson;
 			socket.room = fillingRoom.room;
 			socket.join(fillingRoom.room.roomname);
-
 		} else {
 			currPerson = new Person(personId);
 			currPerson.room = currentRoom;
@@ -42,8 +41,6 @@ module.exports = function(Server) {
 			socket.person = currPerson;
 			socket.room = currentRoom;
 			socket.join(currentRoom.roomname);
-			
-
 			if(personId > 1) {
 				personId = 0;
 				lastRoomNum = currentRoom.num;
@@ -51,9 +48,8 @@ module.exports = function(Server) {
 			}
 		}
 
-		var message = socket.person.id > 1 ? "You are spectating" : 
-																					"You are player " + socket.person.id
-																					+ " in room " + socket.room.num;
+
+	
 		socket.emit('setup', socket.person.id, socket.room.num);
 		
 
