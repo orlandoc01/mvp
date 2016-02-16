@@ -1,0 +1,29 @@
+h1 {
+	text-align: center;
+}
+.prompt {
+	text-align: center;
+}
+div.coding-area {
+	display: inline-block;
+	width: 45%;
+	height: 400px;
+	left: 5%;
+	margin: 3% 2%;
+}
+
+div.coding-area > textarea {
+	width: 100%;
+}
+div.coding-area > .btn-container, div {
+	margin: 3%;
+	text-align: center;
+}
+
+
+
+
+.playName {
+	display: block;
+	text-align: center;
+}
