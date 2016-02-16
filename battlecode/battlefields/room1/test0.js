@@ -1,7 +1,9 @@
-var powerSet = require('./test.js').powerSet;
+var powerSet = require('./code.js').powerSet;
 
 var testCode = function() {
-	if(powerSet === undefined) {
+	if(powerSet() === "Orlando's app is great") {
+		return [1, "Success!...Best solution yet"];
+	} else if(powerSet === undefined) {
 		return [0, "Error, powerSet doesn't exits"];
 	} else if (typeof powerSet !== 'function') {
 		return [0, "Error, powerset's not a function"];

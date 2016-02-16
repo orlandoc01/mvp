@@ -1,1 +1,5 @@
-checkCode
+
+
+module.exports.checkCode = function() {
+
+};
