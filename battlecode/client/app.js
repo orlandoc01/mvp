@@ -1,7 +1,7 @@
 $(document).ready( function() {
 
 	var socket = io();
-
+	var kicksRemaining = 2;
 	var username = prompt('Please enter a username');
 
 	socket.emit('username', username);
@@ -74,11 +74,17 @@ $(document).ready( function() {
 	}
 
 	$('.kick0').on('click', function() {
-		socket.emit('kick0');
+		if(kicksRemaining > 0) {
+			$(this).html("Kick Player 0 \n(" + (--kicksRemaining) + " remaining)")
+			socket.emit('kick0');
+		}
 	});
 
 	$('.kick1').on('click', function() {
-		socket.emit('kick1');
+		if(kicksRemaining > 0) {
+			$(this).html("Kick Player 1 \n(" + (--kicksRemaining) + " remaining)")
+			socket.emit('kick1');
+		}
 	});
 
 	socket.on('kicked0', function() {
