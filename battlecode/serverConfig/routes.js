@@ -1,4 +1,6 @@
 //var request = require('request');
+var checkCode = require('checkCode.js').checkCode();
+
 
 module.exports = function(app, express) {
 	
@@ -7,11 +9,14 @@ module.exports = function(app, express) {
 	});
 
 	app.post('/submit0', function(req, res) {
-		res.send(req.body);
+		checkCode(req.body.code, function(result) {
+			req.send(result);
+		})
 	});
 
 	app.post('/submit1', function(req, res) {
-		res.send(req.body);
-	})
-
+		checkCode(req.body.code, function(result) {
+			req.send(result);
+		})
+	});
 }
