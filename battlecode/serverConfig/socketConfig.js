@@ -42,18 +42,18 @@ module.exports = function(Server) {
 		}
 		var message = socket.person.id > 1 ? "You are spectating" : 
 																					"You are player " + socket.person.id
-																					+ "in room " + socket.person.room.num;
+																					+ " in room " + socket.person.room.num;
 
 			
 		
 		socket.emit('playId', message);
 		
 		socket.on('enterKeyed', function(val) {
-			socket.broadcast.emit('lineFrom' + socket.clientIndex, val);
+			socket.to(socket.person.room.roomname).broadcast.emit('lineFrom' + socket.person.id, val);
 		})
 		
 		socket.on('winner', function(val) {
-			socket.broadcast.emit('winner', 'Player ' + val + ' won!');
+			socket.to(socket.person.room.roomname).broadcast.emit('winner', 'Player ' + val + ' won!');
 		})
 	});
 }
