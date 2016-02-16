@@ -2,6 +2,10 @@ $(document).ready( function() {
 
 	var socket = io();
 
+	var username = prompt('Please enter a username');
+
+	socket.emit('username', username);
+
 	//Create code mirrors
 	var cm0 = CodeMirror.fromTextArea(document.getElementById('play0Code'), {
 		mode: "javascript",
@@ -31,7 +35,6 @@ $(document).ready( function() {
 	cm1.on('keyup', function(e,a,b) {
 		socket.emit('codeEntered', e.getValue());
 	})
-
 	
 	//Submitting functionality implemented here below
 	$('.submit0').on('click', function() {
@@ -62,8 +65,6 @@ $(document).ready( function() {
 		alert(val);
 	});
 
-
-
 	//Kicking functionality implemented here below
 	var spinCodeMirror = function($codeMirror) {
 		$codeMirror.css('transform', 'rotate(180deg)');
@@ -89,4 +90,17 @@ $(document).ready( function() {
 		var $codeMirror = $('.CodeMirror.cm-s-default').last();
 		spinCodeMirror($codeMirror);
 	});
+
+	//Username construction
+	socket.on('player0', function(name) {
+		$('#player0').html('Player 0: ' + name);
+	});
+
+	socket.on('player1', function(name) {
+		$('#player1').html('Player 1: ' + name);
+	})
+
+
+
+
 });
