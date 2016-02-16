@@ -5,44 +5,28 @@ h1 {
 	text-align: center;
 }
 .play0 {
-	position: absolute;
 	display: inline-block;
-	width: 40%;
-	height: 50%;
+	width: 45%;
+	height: 400px;
 	left: 5%;
+	margin: 3% 2%;
 }
 
 .play1 {
-	position: absolute;
 	display: inline-block;
-	width: 40%;
-	height: 50%;
-	right: 5%;
+	width: 45%;
+	height: 400px;
+	margin: 3% 2%
 }
 
-.submit0 {
-	position: absolute;
+.btn-container, .play0result, .play1result {
 	display: inline-block;
-	left: 5%;
-	top: 80%;
+	width: 45%;
+	text-align: center;
+	margin: 1%
 }
 
-.submit1 {
-	position: absolute;
-	display: inline-block;
-	left: 55%;
-	top: 80%;
-}
-.play0result {
-	position: absolute;;
-	display: inline-block;
-	left: 5%;
-	top: 85%
-}
-
-.play1result {
-	position: absolute;;
-	display: inline-block;
-	left: 55%;
-	top: 85%
+.playName {
+	display: block;
+	text-align: center;
 }
