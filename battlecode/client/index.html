@@ -8,7 +8,6 @@
 
 	<body>
 		<h1>BattleCode</h1>
-		
 		<div class = 'prompt'>Return an array with the power set of a given string.<br>Definition of power set: The set of all possible subsets including the empty set.<br>Example:<br>powerSet("abc")<br>
 		-> [ '' , 'a', 'b', 'c', 'ab', 'ac', 'bc', 'abc' ]<br>Note:<br> 
  		1. All characters in a subset should be sorted.<br>
@@ -17,8 +16,7 @@
  		powerSet("jump")<br>
  		-> ["", "j", "ju", "jm", "jp", "jmu", "jmp", "jpu", "jmpu", "u", 
  		<br>"m", "p", "mu", "mp", "pu", "mpu"]
-</div>
-
+		</div>
 		<textarea rows='20' class='play0' id='play0Code'>Code 0</textarea>
 		<textarea rows='20' class='play1' id='play1Code'>Code 1</textarea><br>
 		<button class='submit0'>Submit Code Player 0!</button>
@@ -50,6 +48,7 @@
 				$.post('/submit0', {code: code}, function(data) {
 					console.log('sucessfully sent to server');
 					console.log('result is ' + data);
+					window.result = data[1];
 				});
 			});
 

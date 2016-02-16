@@ -11,8 +11,7 @@ module.exports.checkCode = function(code, playerID, callback) {
 				var result = require(fileDir + '/test' + playerID + '.js').testCode();
 				callback(null, result);
 			} catch(e) {
-				console.log('error occured');
-				callback(err, null);
+				callback(e, null);
 			}
 		}
 	})

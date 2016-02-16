@@ -12,7 +12,8 @@ module.exports = function(app, express) {
 		var playerId = req.path[req.path.length - 1];
 		checkCode(req.body.code, playerId, function(err, result) {
 			if(err) {
-				res.send([0,'Your code caused an error. Check your syntax']);
+				var errorMesasge = 'Uh Oh ' + err;
+				res.send([0, errorMesasge]);
 			} else {
 				console.log('result is' + JSON.stringify(result));
 				res.send(result);
@@ -21,8 +22,9 @@ module.exports = function(app, express) {
 	});
 
 	app.post('/submit1', function(req, res) {
-		checkCode(req.body.code, playerId, function(result) {
+		checkCode(req.body.code, playerId, function(err, result) {
 			if(err) {
+				console.log('an error occured');
 				res.send([0,'Your code caused an error. Check your syntax']);
 			} else {
 				console.log('result is' + JSON.stringify(result));
