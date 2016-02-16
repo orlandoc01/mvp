@@ -1,4 +1,21 @@
+function Room(num) {
+	this.num = num;
+	this[0] = null;
+	this[1] = null;
+	this.roomname = "Room " + this.num;
+}
+
+function Person(id) {
+	this.id = id;
+	this.room = null;
+}
+
+var currentRoom = new Room(0);
+var personId = 0;
+var emptyRooms = []; 
 var clients = [];
+
+
 var startIndex = 0;
 
 module.exports = function(Server) {
@@ -8,10 +25,27 @@ module.exports = function(Server) {
 		
 		console.log('a user connected');
 		clients.push(socket);
-		socket.clientIndex = startIndex++;
-		var message = socket.clientIndex > 1 ? "You are spectating" : 
-																					"You are player " + socket.clientIndex;
 
+		var currPerson = new Person(personId);
+		currPerson.room = currentRoom;
+		currentRoom[personId] = currPerson;
+		personId++;
+
+		socket.person = currPerson;
+		socket.join(currentRoom.roomname);
+	
+
+		if(personId > 1) {
+			personId = 0;
+			lastRoomNum = currentRoom.num;
+			currentRoom = new Room(lastRoomNum + 1);
+		}
+		var message = socket.person.id > 1 ? "You are spectating" : 
+																					"You are player " + socket.person.id
+																					+ "in room " + socket.person.room.num;
+
+			
+		
 		socket.emit('playId', message);
 		
 		socket.on('enterKeyed', function(val) {
