@@ -4,38 +4,41 @@ $(document).ready( function() {
 
 	var socket = io();
 
-	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('play0Code'), {
-		mode: "javascript"
-	});
-
-	var myCodeMirror = CodeMirror.fromTextArea(document.getElementById('play1Code'), {
-		mode: "javascript"
-	});
-
-
-
-
-
-
-
-	
-
-	$('.play0, .play1').keyup(function(event) {
-		if(event.keyCode === 13) {
-			var $this = $(this);
-			socket.emit('enterKeyed', $this.val() );
+	var cm0 = CodeMirror.fromTextArea(document.getElementById('play0Code'), {
+		mode: "javascript",
+		onChange: function(e) {
+			console.log(e);
 		}
 	});
+
+	var cm1 = CodeMirror.fromTextArea(document.getElementById('play1Code'), {
+		mode: "javascript",
+		onChange: function(e) {
+			console.log(e);
+		}
+	});
+
+	cm0.on('keyup', function(e,a,b) {
+		console.log('change occured');
+		socket.emit('codeEntered', e.getValue());
+	})
+
+	cm1.on('keyup', function(e,a,b) {
+		console.log('change occured');
+		socket.emit('codeEntered', e.getValue());
+	})
+
 
 	socket.on('playId', function(message) {
 		$('.playName').html(message);
 	})
 
-	socket.on('lineFrom0', function(val) {
-		$('.play0').val(val);
+	socket.on('codeFrom0', function(val) {
+		cm0.setValue(val);
 	});
-	socket.on('lineFrom1', function(val) {
-		$('.play1').val(val);
+
+	socket.on('codeFrom1', function(val) {
+		cm1.setValue(val);
 	});
 
 	socket.on('winner', function(val) {

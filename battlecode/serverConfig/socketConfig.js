@@ -53,9 +53,12 @@ module.exports = function(Server) {
 																					+ " in room " + socket.person.room.num;
 		socket.emit('playId', message);
 		
-		socket.on('enterKeyed', function(val) {
-			socket.to(socket.person.room.roomname).broadcast.emit('lineFrom' + socket.person.id, val);
+
+		socket.on('codeEntered', function(val) {
+			console.log('code entered was ' + val);
+			socket.to(socket.person.room.roomname).broadcast.emit('codeFrom' + socket.person.id, val);
 		})
+
 		
 		socket.on('winner', function(val) {
 			socket.to(socket.person.room.roomname).broadcast.emit('winner', 'Player ' + val + ' won!');
