@@ -29,12 +29,11 @@
 
 	<body>
 		<h1>BattleCode</h1>
-		<p>Now testing Socket</p>
 		
 			<textarea rows='20' class='play0' id='play0Code'>Code 0</textarea>
 			<textarea rows='20' class='play1' id='play1Code'>Code 1</textarea>
-			<button class='submit0'>Submit Code!</button>
-			<button class='submit1'>Submit Code!'</button>
+			<button class='submit0'>Submit Code Player 0!</button>
+			<button class='submit1'>Submit Code Player 1!'</button>
 	
 
 		<script src='./lib/jquery/dist/jquery.min.js'></script>
@@ -57,14 +56,12 @@
 
 			$('.submit0').on('click', function() {
 				var code = $('#play0Code').val()
-				console.log('submit0 clicked');
 				$.post('/submit0', {code: code}, function(data) {
 					console.log('sucessfully sent to server');
 				});
 			});
 
 			$('.submit1').on('click', function() {
-				console.log('submit1 clicked');
 				var code = $('#play1Code').val()
 				$.post('/submit0', {code: code}, function(data) {
 					console.log('sucessfully sent to server');

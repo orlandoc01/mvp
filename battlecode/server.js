@@ -17,7 +17,6 @@ io.on('connection', function(socket) {
 	clients.push(socket);
 	socket.clientIndex = startIndex++;
 	socket.on('enterKeyed', function(val) {
-		console.log("text in field is " + val);
 		console.log('submitted from user ' + socket.clientIndex);
 		socket.broadcast.emit('lineFrom' + socket.clientIndex, val);
 

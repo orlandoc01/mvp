@@ -7,12 +7,10 @@ module.exports = function(app, express) {
 	});
 
 	app.post('/submit0', function(req, res) {
-		console.log(req.body);
 		res.send(req.body);
 	});
 
 	app.post('/submit1', function(req, res) {
-		console.log(req.body);
 		res.send(req.body);
 	})
 
