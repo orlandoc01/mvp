@@ -19,7 +19,6 @@ io.on('connection', function(socket) {
 	socket.on('enterKeyed', function(val) {
 		console.log('submitted from user ' + socket.clientIndex);
 		socket.broadcast.emit('lineFrom' + socket.clientIndex, val);
-
 	})
 });
 
