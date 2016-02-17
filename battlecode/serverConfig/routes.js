@@ -1,11 +1,22 @@
 //var request = require('request');
 var checkCode = require('./checkCode.js').checkCode;
+var EJS = require('ejs');
+var fs = require('fs');
+var Promise = require('bluebird');
+Promise.promisifyAll(fs);
 
 
 module.exports = function(app, express) {
 	
 	app.get('/', function(req, res) {
-		res.render('index');
+		fs.readFileAsync(__dirname + '/../battlefields/room1/prompt.txt', 'utf8')
+		.then(function(prompt) {
+			fs.readFileAsync(__dirname + '/../battlefields/room1/codeTemplate.js', 'utf8')
+			.then(function(code) {
+				var trimmedCode = code.trim();
+				res.render('index', {prompt: prompt.trim(), code: code});
+			});
+		});
 	});
 
 	app.post('/submit0', function(req, res) {

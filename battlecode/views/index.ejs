@@ -1,15 +1,10 @@
-  <link href="styles.css" rel="stylesheet" type="text/css">
+  	<link href="styles.css" rel="stylesheet" type="text/css">
     <link rel='stylesheet' type="text/css" href='./codeMirrorSimple/codemirror.css'>
-    
+
 		<h1>BattleCode</h1>
-		<div class = 'prompt'>Return an array with the power set of a given string.<br>Definition of power set: The set of all possible subsets including the empty set.<br>Example:<br>powerSet("abc")<br>
-		-> [ '' , 'a', 'b', 'c', 'ab', 'ac', 'bc', 'abc' ]<br>Note:<br> 
- 		1. All characters in a subset should be sorted.<br>
- 		2. Sets of the same characters are considered duplicates regardless of order and count only once, e.g. 'ab' and 'ba' are the same.<br>
- 		Example 2 : <br>
- 		powerSet("jump")<br>
- 		-> ["", "j", "ju", "jm", "jp", "jmu", "jmp", "jpu", "jmpu", "u", 
- 		<br>"m", "p", "mu", "mp", "pu", "mpu"]
+		<div class = 'prompt'>
+			<%- prompt %>
+		</div>
 		<div class='user-handles'>
 			<div class='handle' id='player0'></div>
 			<div class='handle' id='player1'></div>
@@ -17,26 +12,10 @@
 
 		</div class='code-container'>
 			<textarea rows='20' class='play0' id='play0Code'>
-var powerSet = function(str) {
-//Insert code here
-}
-
-
-
-
-//Do not touch. Code will fail if altered
-module.exports.powerSet = powerSet;
+				<%- code %>
 			</textarea>
 			<textarea rows='20' class='play1' id='play1Code'>
-var powerSet = function(str) {
-//Insert code here
-}
-
-
-
-
-//Do not touch. Code will fail if altered
-module.exports.powerSet = powerSet;
+				<%- code %>
 			</textarea><br>
 		<div class = 'btn-container'>
 			<button class='kick1'>Kick Player 1<br>(2 remaining)</button>
@@ -58,22 +37,11 @@ module.exports.powerSet = powerSet;
 
 
 		<script src='./lib/jquery/dist/jquery.min.js'></script>
-		<script src='./lib/lodash/dist/lodash.min.js'></script>
-		<script src='./lib/socket.io-client/socket.io.js'></script>
-		<script src='./codeMirrorSimple/codemirror.js'></script>
-		<script src='./codeMirrorSimple/javascript.js'></script>
-
-
+    <script src='./lib/lodash/dist/lodash.min.js'></script>
+    <script src='./lib/socket.io-client/socket.io.js'></script>
+    <script src='./codeMirrorSimple/codemirror.js'></script>
+    <script src='./codeMirrorSimple/javascript.js'></script>
 		<script src='./app.js'></script>
-
-
-
-<!--		<script src='./codeMirror/util.js'></script>
-		<script src='./codeMirror/codemirror.js'></script>
-		<script src='./codeMirror/editor.js'></script>
-		<script src='./codeMirror/mirrorframe.js'></script>
-		<script src='./codeMirror/jscolors.css'></script>-->
-
 
 	</body>
 </html>
