@@ -1,8 +1,11 @@
 var HackerEarth = require('hackerearth-node');
 var request = require('request');
 
-var CLIENT_SECRET = 'd246c10356414930c48fd6d7e4ea09ec0d8398b5';
-var CLIENT_ID = 'a909c9e433318fc9cd5ff8c291fb2c449c0149930e04.api.hackerearth.com';
+//Note this code is no longer necessary. Originally, was used
+//to send code to run but didn't work
+
+var CLIENT_SECRET = '';
+var CLIENT_ID = '';
 var RUN_URL = 'http://api.hackerearth.com/v3/code/run/';
 
 

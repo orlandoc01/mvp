@@ -7,7 +7,9 @@ Promise.promisifyAll(fs);
 
 
 module.exports = function(app, express) {
-	
+  //making a get request to the index must render the index.ejs file with the appopriate prompt,
+  //and code template. Getting the files from room1 and then injecting them into the ejs template
+  //as a data object ensure they are rendered properly
 	app.get('/', function(req, res) {
 		fs.readFileAsync(__dirname + '/../battlefields/room1/prompt.txt', 'utf8')
 		.then(function(prompt) {
@@ -19,6 +21,8 @@ module.exports = function(app, express) {
 		});
 	});
 
+  //Making a post request to either submit indicates code must be tested to ensure a succesful
+  //submission. In the event of an error, a respons will also be sent
 	app.post('/submit0', function(req, res) {
 		var playerId = req.path[req.path.length - 1];
 		console.log('code is ' + req.body.code);
